@@ -1,0 +1,1232 @@
+This is Log in Management
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Log In</title>
+
+    <style>
+    *
+    {
+    margin: 0;
+    padding: 0;
+    }
+
+    body
+    {
+    background-image: url(img/176476482_3970414789740593_2511859495334039578_n.jpg);
+    }
+
+    .container
+    {
+    display: flex;
+    height: 500px;
+    width: 800px;
+    margin: auto;
+    position: center;
+    margin-top: 120px;
+    padding-left: 420px;
+    }
+
+    .form
+    {
+    color: cyan;
+    width: 40%;
+    text-align: center;
+    position: center;
+    border-radius: 10px;
+    background: transparent;
+    backdrop-filter: blur(5px);
+    background-color: #E0EAFC;
+    }
+
+    .form h1
+    {
+    font-size: 50px;
+    font-family: 'Times New Roman', Times, serif;
+    margin: 60px;
+    text-shadow: 0 0 3px;
+    color: black;
+    
+    }
+    
+    .box
+    {
+    border-radius: 15px;
+    background-color: cyan;
+    padding: 15px;
+    width: 65%;
+    margin: 16px;
+    border: 3px solid black;
+    outline: none;
+    }
+    
+    #submit
+    {
+    color: green;
+    background-color: black;
+    padding: 15px;
+    border-radius: 15px;
+    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+    }
+    
+    #reset 
+    {
+    color: green;
+    background-color: black;
+    padding: 15px;
+    border-radius: 15px;
+    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+    transition: 0.5ms;
+    }
+    
+    #submit:hover{
+    background-color: black;
+    color: white;
+    }
+
+    #reset:hover
+    {
+    background-color: black;
+    color: white;
+    }
+
+    #button
+    {
+    color: green;
+    background-color: black;
+    padding: 15px;
+    border-radius: 15px;
+    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+    }
+    
+    .pgraph
+    {
+    font-size: 15px;
+    color: black;
+    }
+    
+    #button:hover
+    {
+    background-color: black;
+    color: white;
+    }
+
+    h1
+    {
+    color: black;
+    text-align: center;
+    margin-top: 50px;
+    margin-right: 80px;
+    }
+    p 
+    {  
+    color: black;
+    text-align: center;
+    }
+
+    footer
+    {
+    background-color: #646464;
+    border-radius: 20px;
+    }
+    </style>
+
+</head>
+<body>
+    <div class="container">
+        <form class="form" action="Type_Management.html">
+            <h1>Log In</h1>
+            <input type="email" placeholder="Enter Email" required class="box">
+            <input type="password" required class="box" placeholder="Enter Password" maxlength="15">
+            <input type="submit" value="Log In" id="submit">
+            <input type="reset" value="Reset" id="reset">
+            <p class="pgraph">Don’t have an account? Please Sign Up</p>
+            <a href="Sign Up.html">
+                <input type="button" value="Sign Up" id="button">
+            </a>
+        </form>
+    </div>
+
+    <article>
+      <footer>
+        <h1>INSTRUCTIONS</h1>
+        <p>
+            Before proceeding in Parking Management, please enter the required username and password, then log in. If you do not have an existing account, click the Sign-Up button below and complete the required information. Ensure that all entries are correct, then log in with your newly created account before continuing in Parking Management.
+        </p>
+      </footer>
+    </article>
+</body>
+</html>
+
+
+this is Type Management
+
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <title>TYPE MANAGEMENT</title>
+    <style>
+        body {
+            background-image: url('img/176476482_3970414789740593_2511859495334039578_n.jpg');
+            background-repeat: no-repeat;
+            background-size: cover;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 92vh;     
+            margin: 0;
+            font-family: 'Arial', sans-serif;
+            color: #333;
+        }
+
+        .mngt {
+            display: flex;
+            flex-direction: column;
+            align-items: center; /* Center the content horizontally */
+        }
+
+        .Type {
+            background-color: rgba(255, 255, 255, 0.8);
+            width: 400px;
+            border-radius: 8px;
+            padding: 1em;
+            text-align: center;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2);
+            animation: fadeIn 1s;
+            margin-bottom: 20px; /* Add some space below the Type box */
+        }
+
+        .vip {
+            width: 300px;
+            padding: 0.75em;
+            background-color: #007BFF;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 120%;
+            color: white;
+            transition: background-color 0.3s, transform 0.2s;
+            margin: 10px 0;
+        }
+
+        .vip:hover {
+            background-color: #0056b3;
+            transform: scale(1.05);
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+
+        @media (max-width: 480px) {
+            .Type {
+                width: 90%;
+            }
+            .vip {
+                width: 100%;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <div class="mngt">
+        <h2 class="Type">Type Of Member</h2>
+        <button class="vip" onclick="memberSelected('Vip Member')">Vip Member</button>
+        <button class="vip" onclick="memberSelected('Staff')">Staff</button>
+        <button class="vip" onclick="memberSelected('Guest')">Guest</button>
+    </div>
+
+    <script>
+        function memberSelected(memberType) {
+            let url;
+            switch (memberType) {
+                case 'Vip Member':
+                    url = 'Duration.html'; // Replace with your actual VIP page URL
+                    break;
+                case 'Staff':
+                    url = 'Duration.html'; // Replace with your actual Staff page URL
+                    break;
+                case 'Guest':
+                    url = 'Duration.html'; // Replace with your actual Guest page URL
+                    break;
+            }
+            window.location.href = url; // Redirect to the selected URL
+        }
+    </script>
+    
+</body>
+</html>
+
+
+
+
+This Is duration Management
+
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Duration Management</title>
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            margin: 0;
+            color: aliceblue;
+            text-align: center;
+            background-image: url(img/176476482_3970414789740593_2511859495334039578_n.jpg);
+            background-size: cover;
+            background-repeat: no-repeat;
+            padding: 20px;
+        }
+        h1 {
+            font-size: 4em;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.7);
+            margin-bottom: 20px;
+        }
+        .input-box {
+            display: inline-block;
+            background: rgba(0, 0, 0, 0.5);
+            padding: 20px;
+            border-radius: 10px;
+            font-size: 1.5em;
+            margin: auto;
+        }
+        input[type="text"] {
+            width: 200px;
+            padding: 10px;
+            font-size: 1em;
+            margin: 10px 0;
+            border-radius: 5px;
+            border: none;
+        }
+        button {
+            padding: 10px 20px;
+            font-size: 1em;
+            border-radius: 5px;
+            border: none;
+            background-color: #007BFF;
+            color: white;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+        button:hover {
+            background-color: #0056b3;
+        }
+    </style>
+</head>
+<body>
+    <h1>Duration Management</h1>
+    <div class="input-box">
+        <input type="text" id="timeIn" placeholder="Time In (HH:MM AM/PM)">
+        <br>
+        <input type="text" id="timeOut" placeholder="Time Out (HH:MM AM/PM)">
+        <br>
+        <input type="text" id="elapsedTime" placeholder="Elapsed Time (HH:MM)" readonly>
+        <br>
+        <button onclick="calculateElapsedTime()">Calculate</button>
+        <br>
+        <button onclick="goToPage('Vehicle_Management.html')">Next Page</button>
+    </div>
+
+    <script>
+        function calculateElapsedTime() {
+            const timeIn = document.getElementById('timeIn').value.trim();
+            const timeOut = document.getElementById('timeOut').value.trim();
+
+            const inParsed = parseTime(timeIn);
+            const outParsed = parseTime(timeOut);
+
+            if (!inParsed || !outParsed) {
+                alert("Please enter valid times in the format HH:MM AM/PM");
+                return;
+            }
+
+            const startTime = new Date();
+            startTime.setHours(inParsed.hours + (inParsed.meridiem === 'PM' && inParsed.hours < 12 ? 12 : 0), inParsed.minutes);
+
+            const endTime = new Date();
+            endTime.setHours(outParsed.hours + (outParsed.meridiem === 'PM' && outParsed.hours < 12 ? 12 : 0), outParsed.minutes);
+
+            if (endTime <= startTime) {
+                endTime.setDate(endTime.getDate() + 1); // Add one day for overnight scenarios
+            }
+
+            const elapsedMillis = endTime - startTime;
+            const elapsedHours = Math.floor(elapsedMillis / 3600000);
+            const elapsedMinutes = Math.floor((elapsedMillis % 3600000) / 60000);
+
+            const elapsedTime = `${String(elapsedHours).padStart(2, '0')}:${String(elapsedMinutes).padStart(2, '0')}`;
+            document.getElementById('elapsedTime').value = elapsedTime;
+        }
+
+        function parseTime(time) {
+            const parts = time.split(' ');
+            if (parts.length !== 2) return null;
+
+            const timePart = parts[0];
+            const meridiem = parts[1].toUpperCase();
+
+            const [hours, minutes] = timePart.split(':').map(Number);
+            if (isNaN(hours) || isNaN(minutes) || 
+                hours < 1 || hours > 12 || 
+                minutes < 0 || minutes > 59 || 
+                (meridiem !== 'AM' && meridiem !== 'PM')) {
+                return null;
+            }
+
+            return { hours, minutes, meridiem };
+        }
+
+        function goToPage(page) {
+            window.location.href = page;
+        }
+    </script>
+</body>
+</html>
+
+
+
+This is Vehicle Mangement
+
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&display=swap" rel="stylesheet">
+    <title>Vehicle Type Management System</title>
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body {
+            font-family: 'Playfair Display', serif;
+            background-image: url(Img/bcp.png);
+            background-position: center;
+            background-size: cover;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            color: #333;
+        }
+        .container {
+            width: 80%;
+            max-width: 600px;
+            background-color: #fff;
+            padding: 30px;
+            border-radius: 20px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+        }
+        h1 { text-align: center; color: #0159e7; margin-bottom: 20px; }
+        .form-group { margin-bottom: 15px; }
+        label { font-weight: bold; color: #333; }
+        input, select, .btn {
+            width: 100%; padding: 10px; font-size: 1em; margin-top: 5px;
+            border-radius: 5px; border: 1px solid #ccc; transition: 0.3s;
+        }
+        .btn { color: #fff; background-color: #0159e7; font-weight: bold; cursor: pointer; }
+        .btn:hover { background-color: #013ea7; }
+        .vehicle-list { margin-top: 30px; }
+        .vehicle-item { padding: 15px; background-color: #f1f1f1; border-radius: 5px; margin-bottom: 10px; display: flex; justify-content: space-between; }
+        .vehicle-item .details { flex-direction: column; }
+        .vehicle-item .btn-edit, .vehicle-item .btn-delete { padding: 5px 10px; border-radius: 3px; font-size: 0.9em; cursor: pointer; }
+        .btn-edit { background-color: #ffa500; color: white; }
+        .btn-delete { background-color: #f44336; color: white; }
+
+        .vehicle-list h2 { text-align: center; }
+        
+        /* Align buttons side-by-side */
+        .button-group {
+            display: flex;
+            justify-content: center;
+            gap: 10px;
+            margin-top: 20px;
+        }
+        .button-group button {
+            padding: 10px 20px;
+            font-size: 1em;
+            background-color: #0159e7;
+            color: #fff;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Vehicle Type Management System</h1>
+        
+        <!-- Form for Adding or Editing Vehicle -->
+        <form id="vehicle-form">
+            <div class="form-group">
+                <label for="model">Model</label>
+                <input type="text" id="model" name="model" placeholder="Enter car model" required>
+            </div>
+            <div class="form-group">
+                <label for="version">Version</label>
+                <input type="text" id="version" name="version" placeholder="Enter version" required>
+            </div>
+            <div class="form-group">
+                <label for="year">Year</label>
+                <input type="number" id="year" name="year" placeholder="Enter year" required min="1900" max="2099">
+            </div>
+            <button type="submit" class="btn" id="submit-btn">Add Vehicle</button>
+        </form>
+
+        <!-- Button Group for Navigation -->
+        <div class="button-group">
+            <button onclick="location.href='Floor_section.html'">Go to Floor Selection</button>
+            <button onclick="location.href='Costumer_Management.html'">Go Back to Duration Management</button>
+        </div>
+
+        <!-- Display Vehicle List -->
+        <div class="vehicle-list" id="vehicle-list">
+            <h2>Vehicle List</h2>
+        </div>
+    </div>
+
+    <script>
+        let editMode = false;
+        let vehicleToEdit = null;
+
+        document.getElementById('vehicle-form').addEventListener('submit', function(event) {
+            event.preventDefault();
+            const model = document.getElementById('model').value;
+            const version = document.getElementById('version').value;
+            const year = document.getElementById('year').value;
+
+            if (editMode && vehicleToEdit) {
+                vehicleToEdit.querySelector('.details').innerHTML = `
+                    <strong>Model:</strong> ${model} <br>
+                    <strong>Version:</strong> ${version} <br>
+                    <strong>Year:</strong> ${year}
+                `;
+                document.getElementById('submit-btn').textContent = 'Add Vehicle';
+                editMode = false;
+                vehicleToEdit = null;
+            } else {
+                const vehicleList = document.getElementById('vehicle-list');
+                const vehicleItem = document.createElement('div');
+                vehicleItem.className = 'vehicle-item';
+                vehicleItem.innerHTML = `
+                    <div class="details">
+                        <strong>Model:</strong> ${model} <br>
+                        <strong>Version:</strong> ${version} <br>
+                        <strong>Year:</strong> ${year}
+                    </div>
+                    <div class="actions">
+                        <button class="btn-edit">Edit</button>
+                        <button class="btn-delete">Delete</button>
+                    </div>
+                `;
+                vehicleList.appendChild(vehicleItem);
+
+                vehicleItem.querySelector('.btn-delete').addEventListener('click', () => {
+                    vehicleList.removeChild(vehicleItem);
+                });
+
+                vehicleItem.querySelector('.btn-edit').addEventListener('click', () => {
+                    document.getElementById('model').value = model;
+                    document.getElementById('version').value = version;
+                    document.getElementById('year').value = year;
+                    document.getElementById('submit-btn').textContent = 'Update Vehicle';
+                    editMode = true;
+                    vehicleToEdit = vehicleItem;
+                });
+            }
+            document.getElementById('vehicle-form').reset();
+        });
+    </script>
+</body>
+</html>
+
+
+
+this is script js 
+
+
+document.getElementById('vehicleForm').addEventListener('submit', function(event) {
+    event.preventDefault();
+    
+    const make = document.getElementById('make').value;
+    const model = document.getElementById('model').value;
+    const year = document.getElementById('year').value;
+
+    addVehicle(make, model, year);
+});
+
+function addVehicle(make, model, year) {
+    const vehicleList = document.getElementById('vehicleList');
+    const row = document.createElement('tr');
+    row.innerHTML = `
+        <td>${make}</td>
+        <td>${model}</td>
+        <td>${year}</td>
+        <td><button class="remove-button" onclick="removeVehicle(this)">Remove</button></td>
+    `;
+    vehicleList.appendChild(row);
+
+    document.getElementById('vehicleForm').reset();
+}
+
+function removeVehicle(button) {
+    const row = button.parentNode.parentNode;
+    row.parentNode.removeChild(row);
+}
+
+
+
+This is floor Selection
+
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="Floors.css">
+    <title>Select Floor - Parking Slot Management</title>
+</head>
+<body>
+    <header>
+        <div class="header-content">
+            <a href="Parking_slot.html">
+                <img src="img/bcplogo.png" alt="Logo" class="logo">
+            </a>
+            <h1>Select a Floor</h1>
+        </div>
+    </header>
+    <main>
+        <div class="container">
+            <div class="floor-card" onclick="location.href='Floor_1.html'">Floor 1</div>
+            <div class="floor-card" onclick="location.href='Floor_2.html'">Floor 2</div>
+            <div class="floor-card" onclick="location.href='Floor_3.html'">Floor 3</div>
+            <div class="floor-card" onclick="location.href='Floor_4.html'">Floor 4</div>
+            <div class="floor-card" onclick="location.href='Floor_5.html'">Floor 5</div>
+        </div>
+        <!-- Link to the Vehicle Management Page -->
+        <div style="text-align: center; margin-top: 20px;">
+            <button onclick="location.href='Vehicle_Management.html'" style="padding: 10px 20px; font-size: 1em; background-color: #0159e7; color: #fff; border: none; border-radius: 5px; cursor: pointer;">
+                Manage Vehicle Types
+            </button>
+        </div>
+    </main>
+    <footer>
+        <p>&copy; 2024 BCP Parking Slot Management. All rights reserved.</p>
+    </footer>
+</body>
+</html>
+
+
+
+
+floor 1
+
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&display=swap" rel="stylesheet"> <!-- Add Playfair Display font -->
+    <link rel="stylesheet" href="Floors.css"> <!-- Link to your CSS file -->
+    <title>Floor 1 - Parking Slot Management</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css" integrity="sha512-Kc323vGBEqzTmouAECnVceyQqyqdsSiqLQISBL29aUW4U/M7pSPA/gEUZQqv1cwx4OnYxTxve5UMg5GT6L4JJg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+</head>
+<body>
+    <header>
+        <div class="header-content">
+            <a href="Parking_slot.html"> <!-- Link to the home page -->
+            <img src="Img/bcplogo.png" alt="BCP logo" class="logo"> <!-- Add your logo image here -->
+            </a>
+            <h1 class="header-title">Floor 1 Parking Slots</h1>
+        </div>
+    </header>
+    <main>
+        <div class="container">
+            <div class="navigation">
+                <a href="Floor_section.html"><i class="fa-solid fa-house" data-label="Home"></i></a>
+                <a href="Floor_2.html"><i class="fa-solid fa-arrow-right" data-label="Next"></i></a>
+            </div>
+            <h2 class="available-slots-header">Available Parking Slots</h2> <!-- Add class for styling -->
+            <div class="slots-grid">
+                <!-- Create 20 slots -->
+                <div class="slot" data-slot-number="1" data-status="available">Slot 1<br><span>Available</span></div>
+                <div class="slot" data-slot-number="2" data-status="available">Slot 2<br><span>Available</span></div>
+                <div class="slot" data-slot-number="3" data-status="available">Slot 3<br><span>Available</span></div>
+                <div class="slot" data-slot-number="4" data-status="available">Slot 4<br><span>Available</span></div>
+                <div class="slot" data-slot-number="5" data-status="available">Slot 5<br><span>Available</span></div>
+                <div class="slot" data-slot-number="6" data-status="available">Slot 6<br><span>Available</span></div>
+                <div class="slot" data-slot-number="7" data-status="available">Slot 7<br><span>Available</span></div>
+                <div class="slot" data-slot-number="8" data-status="available">Slot 8<br><span>Available</span></div>
+                <div class="slot" data-slot-number="9" data-status="available">Slot 9<br><span>Available</span></div>
+                <div class="slot" data-slot-number="10" data-status="available">Slot 10<br><span>Available</span></div>
+                <div class="slot" data-slot-number="11" data-status="available">Slot 11<br><span>Available</span></div>
+                <div class="slot" data-slot-number="12" data-status="available">Slot 12<br><span>Available</span></div>
+                <div class="slot" data-slot-number="13" data-status="available">Slot 13<br><span>Available</span></div>
+                <div class="slot" data-slot-number="14" data-status="available">Slot 14<br><span>Available</span></div>
+                <div class="slot" data-slot-number="15" data-status="available">Slot 15<br><span>Available</span></div>
+                <div class="slot" data-slot-number="16" data-status="available">Slot 16<br><span>Available</span></div>
+                <div class="slot" data-slot-number="17" data-status="available">Slot 17<br><span>Available</span></div>
+                <div class="slot" data-slot-number="18" data-status="available">Slot 18<br><span>Available</span></div>
+                <div class="slot" data-slot-number="19" data-status="available">Slot 19<br><span>Available</span></div>
+                <div class="slot" data-slot-number="20" data-status="available">Slot 20<br><span>Available</span></div>
+            </div>
+            <div id="notification" class="notification"></div> <!-- Notification area -->
+        </div>
+    </main>
+    <footer>
+        <p>&copy; 2024 BCP Parking Slot Management. All rights reserved.</p>
+    </footer>
+    <script src="Floors.js"></script> <!-- Link to your JavaScript file -->
+</body>
+</html>
+
+
+
+floor 2
+
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&display=swap" rel="stylesheet"> <!-- Add Playfair Display font -->
+    <link rel="stylesheet" href="Floors.css"> <!-- Link to your CSS file -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css" integrity="sha512-Kc323vGBEqzTmouAECnVceyQqyqdsSiqLQISBL29aUW4U/M7pSPA/gEUZQqv1cwx4OnYxTxve5UMg5GT6L4JJg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <title>Floor 2 - Parking Slot Management</title>
+</head>
+<body>
+    <header>
+        <div class="header-content">
+            <a href="Parking_slot.html"> <!-- Link to the home page -->
+            <img src="Img/bcplogo.png" alt="BCP logo" class="logo"> <!-- Add your logo image here -->
+            </a>
+            <h1 class="header-title">Floor 2 Parking Slots</h1>
+        </div>
+    </header>
+    <main>
+        <div class="container">
+            <div class="navigation">
+                <a href="Floor_1.html"><i class="fa-solid fa-arrow-left" data-label="Back"></i></a>
+                <a href="Floor_section.html"><i class="fa-solid fa-house" data-label="Home"></i></a>
+                <a href="Floor_3.html"><i class="fa-solid fa-arrow-right" data-label="Next"></i></a>
+            </div>
+            <h2 class="available-slots-header">Available Parking Slots</h2> <!-- Add class for styling -->
+            <div class="slots-grid">
+                <div class="slot" data-slot-number="1" data-status="available">Slot 1<br><span>Available</span></div>
+                <div class="slot" data-slot-number="2" data-status="available">Slot 2<br><span>Available</span></div>
+                <div class="slot" data-slot-number="3" data-status="available">Slot 3<br><span>Available</span></div>
+                <div class="slot" data-slot-number="4" data-status="available">Slot 4<br><span>Available</span></div>
+                <div class="slot" data-slot-number="5" data-status="available">Slot 5<br><span>Available</span></div>
+                <div class="slot" data-slot-number="6" data-status="available">Slot 6<br><span>Available</span></div>
+                <div class="slot" data-slot-number="7" data-status="available">Slot 7<br><span>Available</span></div>
+                <div class="slot" data-slot-number="8" data-status="available">Slot 8<br><span>Available</span></div>
+                <div class="slot" data-slot-number="9" data-status="available">Slot 9<br><span>Available</span></div>
+                <div class="slot" data-slot-number="10" data-status="available">Slot 10<br><span>Available</span></div>
+                <div class="slot" data-slot-number="11" data-status="available">Slot 11<br><span>Available</span></div>
+                <div class="slot" data-slot-number="12" data-status="available">Slot 12<br><span>Available</span></div>
+                <div class="slot" data-slot-number="13" data-status="available">Slot 13<br><span>Available</span></div>
+                <div class="slot" data-slot-number="14" data-status="available">Slot 14<br><span>Available</span></div>
+                <div class="slot" data-slot-number="15" data-status="available">Slot 15<br><span>Available</span></div>
+                <div class="slot" data-slot-number="16" data-status="available">Slot 16<br><span>Available</span></div>
+                <div class="slot" data-slot-number="17" data-status="available">Slot 17<br><span>Available</span></div>
+                <div class="slot" data-slot-number="18" data-status="available">Slot 18<br><span>Available</span></div>
+                <div class="slot" data-slot-number="19" data-status="available">Slot 19<br><span>Available</span></div>
+                <div class="slot" data-slot-number="20" data-status="available">Slot 20<br><span>Available</span></div>
+            </div>
+            <div id="notification" class="notification"></div> <!-- Notification area -->
+        </div>
+    </main>
+    <footer>
+        <p>&copy; 2024 BCP Parking Slot Management. All rights reserved.</p>
+    </footer>
+    <script src="Floors.js"></script> <!-- Link to your JavaScript file -->
+</body>
+</html>
+
+
+
+floor 3
+
+
+!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&display=swap" rel="stylesheet"> <!-- Add Playfair Display font -->
+    <link rel="stylesheet" href="Floors.css"> <!-- Link to your CSS file -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css" integrity="sha512-Kc323vGBEqzTmouAECnVceyQqyqdsSiqLQISBL29aUW4U/M7pSPA/gEUZQqv1cwx4OnYxTxve5UMg5GT6L4JJg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <title>Floor 3 - Parking Slot Management</title>
+</head>
+<body>
+    <header>
+        <div class="header-content">
+            <a href="Parking_slot.html"> <!-- Link to the home page -->
+            <img src="Img/bcplogo.png" alt="BCP logo" class="logo"> <!-- Add your logo image here -->
+            </a>
+            <h1 class="header-title">Floor 3 Parking Slots</h1>
+    </header>
+    <main>
+        <div class="container">
+            <div class="navigation">
+                <a href="Floor_2.html"><i class="fa-solid fa-arrow-left" data-label="Back"></i></a>
+                <a href="Floor_section.html"><i class="fa-solid fa-house" data-label="Home"></i></a>
+                <a href="Floor_4.html"><i class="fa-solid fa-arrow-right" data-label="Next"></i></a>
+            </div>
+            <h2 class="available-slots-header">Available Parking Slots</h2> <!-- Add class for styling -->
+            <div class="slots-grid">
+                <div class="slot" data-slot-number="1" data-status="available">Slot 1<br><span>Available</span></div>
+                <div class="slot" data-slot-number="2" data-status="available">Slot 2<br><span>Available</span></div>
+                <div class="slot" data-slot-number="3" data-status="available">Slot 3<br><span>Available</span></div>
+                <div class="slot" data-slot-number="4" data-status="available">Slot 4<br><span>Available</span></div>
+                <div class="slot" data-slot-number="5" data-status="available">Slot 5<br><span>Available</span></div>
+                <div class="slot" data-slot-number="6" data-status="available">Slot 6<br><span>Available</span></div>
+                <div class="slot" data-slot-number="7" data-status="available">Slot 7<br><span>Available</span></div>
+                <div class="slot" data-slot-number="8" data-status="available">Slot 8<br><span>Available</span></div>
+                <div class="slot" data-slot-number="9" data-status="available">Slot 9<br><span>Available</span></div>
+                <div class="slot" data-slot-number="10" data-status="available">Slot 10<br><span>Available</span></div>
+                <div class="slot" data-slot-number="11" data-status="available">Slot 11<br><span>Available</span></div>
+                <div class="slot" data-slot-number="12" data-status="available">Slot 12<br><span>Available</span></div>
+                <div class="slot" data-slot-number="13" data-status="available">Slot 13<br><span>Available</span></div>
+                <div class="slot" data-slot-number="14" data-status="available">Slot 14<br><span>Available</span></div>
+                <div class="slot" data-slot-number="15" data-status="available">Slot 15<br><span>Available</span></div>
+                <div class="slot" data-slot-number="16" data-status="available">Slot 16<br><span>Available</span></div>
+                <div class="slot" data-slot-number="17" data-status="available">Slot 17<br><span>Available</span></div>
+                <div class="slot" data-slot-number="18" data-status="available">Slot 18<br><span>Available</span></div>
+                <div class="slot" data-slot-number="19" data-status="available">Slot 19<br><span>Available</span></div>
+                <div class="slot" data-slot-number="20" data-status="available">Slot 20<br><span>Available</span></div>
+            </div>
+            <div id="notification" class="notification"></div> <!-- Notification area -->
+        </div>
+    </main>
+    <footer>
+        <p>&copy; 2024 BCP Parking Slot Management. All rights reserved.</p>
+    </footer>
+    <script src="Floors.js"></script> <!-- Link to your JavaScript file -->
+</body>
+</html>
+
+
+floor 4
+
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&display=swap" rel="stylesheet"> <!-- Add Playfair Display font -->
+    <link rel="stylesheet" href="Floors.css"> <!-- Link to your CSS file -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css" integrity="sha512-Kc323vGBEqzTmouAECnVceyQqyqdsSiqLQISBL29aUW4U/M7pSPA/gEUZQqv1cwx4OnYxTxve5UMg5GT6L4JJg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <title>Floor 4 - Parking Slot Management</title>
+</head>
+<body>
+    <header>
+        <div class="header-content">
+            <a href="Parking_slot.html"> <!-- Link to the home page -->
+            <img src="Img/bcplogo.png" alt="BCP logo" class="logo"> <!-- Add your logo image here -->
+            </a>
+            <h1 class="header-title">Floor 4 Parking Slots</h1>
+    </header>
+    <main>
+        <div class="container">
+            <div class="navigation">
+                <a href="Floor_3.html"><i class="fa-solid fa-arrow-left" data-label="Back"></i></a>
+                <a href="Floor_section.html"><i class="fa-solid fa-house" data-label="Home"></i></a>
+                <a href="Floor_5.html"><i class="fa-solid fa-arrow-right" data-label="Next"></i></a>
+            </div>
+            <h2 class="available-slots-header">Available Parking Slots</h2> <!-- Add class for styling -->
+            <div class="slots-grid">
+                <div class="slot" data-slot-number="1" data-status="available">Slot 1<br><span>Available</span></div>
+                <div class="slot" data-slot-number="2" data-status="available">Slot 2<br><span>Available</span></div>
+                <div class="slot" data-slot-number="3" data-status="available">Slot 3<br><span>Available</span></div>
+                <div class="slot" data-slot-number="4" data-status="available">Slot 4<br><span>Available</span></div>
+                <div class="slot" data-slot-number="5" data-status="available">Slot 5<br><span>Available</span></div>
+                <div class="slot" data-slot-number="6" data-status="available">Slot 6<br><span>Available</span></div>
+                <div class="slot" data-slot-number="7" data-status="available">Slot 7<br><span>Available</span></div>
+                <div class="slot" data-slot-number="8" data-status="available">Slot 8<br><span>Available</span></div>
+                <div class="slot" data-slot-number="9" data-status="available">Slot 9<br><span>Available</span></div>
+                <div class="slot" data-slot-number="10" data-status="available">Slot 10<br><span>Available</span></div>
+                <div class="slot" data-slot-number="11" data-status="available">Slot 11<br><span>Available</span></div>
+                <div class="slot" data-slot-number="12" data-status="available">Slot 12<br><span>Available</span></div>
+                <div class="slot" data-slot-number="13" data-status="available">Slot 13<br><span>Available</span></div>
+                <div class="slot" data-slot-number="14" data-status="available">Slot 14<br><span>Available</span></div>
+                <div class="slot" data-slot-number="15" data-status="available">Slot 15<br><span>Available</span></div>
+                <div class="slot" data-slot-number="16" data-status="available">Slot 16<br><span>Available</span></div>
+                <div class="slot" data-slot-number="17" data-status="available">Slot 17<br><span>Available</span></div>
+                <div class="slot" data-slot-number="18" data-status="available">Slot 18<br><span>Available</span></div>
+                <div class="slot" data-slot-number="19" data-status="available">Slot 19<br><span>Available</span></div>
+                <div class="slot" data-slot-number="20" data-status="available">Slot 20<br><span>Available</span></div>
+            </div>
+            <div id="notification" class="notification"></div> <!-- Notification area -->
+        </div>
+    </main>
+    <footer>
+        <p>&copy; 2024 BCP Parking Slot Management. All rights reserved.</p>
+    </footer>
+    <script src="Floors.js"></script> <!-- Link to your JavaScript file -->
+</body>
+</html>
+
+
+
+floor 5
+
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&display=swap" rel="stylesheet"> <!-- Add Playfair Display font -->
+    <link rel="stylesheet" href="Floors.css"> <!-- Link to your CSS file -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css" integrity="sha512-Kc323vGBEqzTmouAECnVceyQqyqdsSiqLQISBL29aUW4U/M7pSPA/gEUZQqv1cwx4OnYxTxve5UMg5GT6L4JJg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <title>Floor 5 - Parking Slot Management</title>
+</head>
+<body>
+    <header>
+        <div class="header-content">
+            <a href="Parking_slot.html"> <!-- Link to the home page -->
+            <img src="Img/bcplogo.png" alt="BCP logo" class="logo"> <!-- Add your logo image here -->
+            </a>
+            <h1 class="header-title">Floor 5 Parking Slots</h1>
+    </header>
+    <main>
+        <div class="container">
+            <div class="navigation">
+                <a href="Floor_4.html"><i class="fa-solid fa-arrow-left" data-label="Back"></i></a>
+                <a href="Floor_section.html"><i class="fa-solid fa-house" data-label="Home"></i></a>
+            </div>
+            <h2 class="available-slots-header">Available Parking Slots</h2> <!-- Add class for styling -->
+            <div class="slots-grid">
+                <div class="slot" data-slot-number="1" data-status="available">Slot 1<br><span>Available</span></div>
+                <div class="slot" data-slot-number="2" data-status="available">Slot 2<br><span>Available</span></div>
+                <div class="slot" data-slot-number="3" data-status="available">Slot 3<br><span>Available</span></div>
+                <div class="slot" data-slot-number="4" data-status="available">Slot 4<br><span>Available</span></div>
+                <div class="slot" data-slot-number="5" data-status="available">Slot 5<br><span>Available</span></div>
+                <div class="slot" data-slot-number="6" data-status="available">Slot 6<br><span>Available</span></div>
+                <div class="slot" data-slot-number="7" data-status="available">Slot 7<br><span>Available</span></div>
+                <div class="slot" data-slot-number="8" data-status="available">Slot 8<br><span>Available</span></div>
+                <div class="slot" data-slot-number="9" data-status="available">Slot 9<br><span>Available</span></div>
+                <div class="slot" data-slot-number="10" data-status="available">Slot 10<br><span>Available</span></div>
+                <div class="slot" data-slot-number="11" data-status="available">Slot 11<br><span>Available</span></div>
+                <div class="slot" data-slot-number="12" data-status="available">Slot 12<br><span>Available</span></div>
+                <div class="slot" data-slot-number="13" data-status="available">Slot 13<br><span>Available</span></div>
+                <div class="slot" data-slot-number="14" data-status="available">Slot 14<br><span>Available</span></div>
+                <div class="slot" data-slot-number="15" data-status="available">Slot 15<br><span>Available</span></div>
+                <div class="slot" data-slot-number="16" data-status="available">Slot 16<br><span>Available</span></div>
+                <div class="slot" data-slot-number="17" data-status="available">Slot 17<br><span>Available</span></div>
+                <div class="slot" data-slot-number="18" data-status="available">Slot 18<br><span>Available</span></div>
+                <div class="slot" data-slot-number="19" data-status="available">Slot 19<br><span>Available</span></div>
+                <div class="slot" data-slot-number="20" data-status="available">Slot 20<br><span>Available</span></div>
+            </div>
+            <div id="notification" class="notification"></div> <!-- Notification area -->
+        </div>
+    </main>
+    <footer>
+        <p>&copy; 2024 BCP Parking Slot Management. All rights reserved.</p>
+    </footer>
+    <script src="Floors.js"></script> <!-- Link to your JavaScript file -->
+</body>
+</html>
+
+
+floor.css
+
+
+body {
+    font-family: 'Mononoki', monospace; /* Use Poppins for a clean look */
+    margin: 0;
+    padding: 0;
+    background-color: #f4f4f4; /* Light background for contrast */
+    background-image: url(img/bcp.png); /* Add your background image here */
+    background-size: cover; /* Cover the entire viewport */
+    background-position: center; /* Center the background image */
+    background-repeat: no-repeat; /* Prevent the background from repeating */
+    min-height: 100vh; /* Ensure the body takes at least the full height of the viewport */
+    display: flex;
+    flex-direction: column; /* Stack children vertically */
+    transition: background-color 0.5s ease; /* Smooth transition for background color */
+}
+
+
+header {
+    display: flex; /* Use flexbox for header layout */
+    align-items: center; /* Center items vertically */
+    padding: 20px; /* Padding for header */
+    background-color: rgba(1, 93, 231, 0.8); /* Blue background with transparency */
+    color: white;
+    border-bottom: 4px solid #000000; /* Darker blue border for separation */
+}
+
+.header-content {
+    display: flex; /* Use flexbox for header content */
+    align-items: center; /* Center items vertically */
+    width: 100%; /* Full width */
+}
+
+.logo {
+    width: 80px; /* Adjust logo size to make it larger */
+    height: auto; /* Maintain aspect ratio */
+    margin-right: 20px; /* Space between logo and title */
+}
+
+.header-title {
+    flex-grow: 1; /* Allow the title to take up remaining space */
+    text-align: center; /* Center the title text */
+}
+
+
+.container {
+    display: flex;
+    flex-direction: column; /* Stack items vertically */
+    align-items: center; /* Center items */
+    padding: 25px; /* Increased padding for more space */
+    flex: 1; /* Allow the container to grow and fill available space */
+    margin-top: 3%; /* Add margin to push the content down */
+}
+
+.available-slots-header {
+    background-color: #4caf50; /* Green background for the header */
+    color: white; /* Text color */
+    padding: 10px; /* Padding for the header */
+    border-radius: 5px; /* Rounded corners */
+    text-align: center; /* Center the text */
+    margin-bottom: 20px; /* Space below the header */
+}
+
+.slots-grid {
+    display: grid;
+    grid-template-columns: repeat(5, 1fr); /* 5 slots per row */
+    gap: 20px; /* Space between slots */
+    width: 100%; /* Full width */
+    max-width: 1200px; /* Max width for larger screens */
+}
+
+.slot {
+    background-color: #66bb6a; /* Green background for available slots */
+    border: 1px solid #ccc;
+    border-radius: 5px; /* Rounded corners */
+    margin: 10px; /* Increased margin for spacing */
+    padding: 15px; /* Increased padding for larger slots */
+    text-align: center;
+    cursor: pointer;
+    transition: background-color 0.2s, transform 0.3s; /* Add transform for animation */
+    width: auto; /* Allow width to adjust automatically */
+    height: auto; /* Allow height to adjust automatically */
+}
+
+
+.slot:hover {
+    background-color: #66bb6a; /* Slightly darker green on hover */
+}
+
+/* New class for occupied slots */
+.slot.occupied {
+    background-color: #f44336; /* Red background for occupied slots */
+    cursor: not-allowed; /* Change cursor to indicate it's occupied */
+}
+
+
+.floor-card {
+    background-color: #646464; /* Background color for floor cards */
+    color: white; /* Text color */
+    border-radius: 10px; /* Rounded corners */
+    padding: 20px; /* Padding for floor cards */
+    margin: 10px; /* Margin between cards */
+    text-align: center; /* Center text */
+    width: 200px; /* Width of the cards */
+    cursor: pointer; /* Pointer cursor on hover */
+    transition: background-color 0.3s, transform 0.3s; /* Smooth background color transition */
+}
+
+.floor-card:hover {
+    background-color: #4a4a4a; /* Darker shade on hover */
+}
+
+footer {
+    text-align: center;
+    padding: 2rem; /* Increased padding for footer */
+    background-color: rgba(0, 0, 0, 0.8); /* Dark footer with transparency */
+    color: rgb(255, 255, 255);
+    position: relative; /* Position relative to allow stacking */
+    z-index: 1; /* Ensure footer is above the background */
+    margin-top: auto; /* Push footer to the bottom */
+}
+
+.select-floor {
+    background-color: #4e4e4e; /* Blue background */
+    color: rgb(255, 255, 255);
+    border-radius: 30px;
+    padding: 30px; /* Increased padding for a larger button */
+    text-align: center;
+    width: 300px; /* Increased width for better visibility */
+    cursor: pointer;
+    margin: 5% auto; /* Center the button with more margin */
+    transition: background-color 0.5s, transform 0.3s; /* Add transition for animation */
+    font-size: 1.2em; /* Increased font size for emphasis */
+}
+
+.select-floor:hover {
+    background-color: #4a8bdc; /* Darker shade on hover */
+    transform: scale(1.05); /* Slightly enlarge on hover */
+}
+
+.navigation {
+    display: flex;
+    justify-content: center;
+    gap: 15px;
+}
+
+.navigation i:hover::after {
+    content: attr(data-label); /* Get label text from data attribute */
+    position: absolute;
+    bottom: -25px; /* Position below the icon */
+    left: 50%;
+    transform: translateX(-50%);
+    background-color: rgba(0, 0, 0, 0.8); /* Dark background */
+    color: white;
+    padding: 5px 10px;
+    border-radius: 5px;
+    font-size: 0.9em;
+    white-space: nowrap; /* Prevent text wrapping */
+    z-index: 10;
+    opacity: 0; /* Start hidden */
+    transition: opacity 0.3s ease-in-out; /* Smooth transition */
+    pointer-events: none; /* Prevent interactions with label */
+}
+
+.navigation i{
+    padding: 0px 10px;
+}
+
+.navigation:hover a, i
+{
+    cursor: pointer;
+    color: #000000;
+}
+
+
+/* Animation for the notification */
+.notification {
+    background-color: rgba(0, 119, 255, 0.7); /* Default semi-transparent background */
+    color: rgb(240, 240, 240); /* Text color */
+    padding: 10px; /* Padding for the notification */
+    border-radius: 5px; /* Rounded corners */
+    margin-top: 20px; /* Space above the notification */
+    display: none; /* Initially hidden */
+    font-size: 1.2em; /* Font size for visibility */
+    text-align: center; /* Center the text */
+    animation: fadeInOut 2s ease-out; /* Animation for fade in and out */
+}
+
+/* Show notification when it has content */
+.notification:not(:empty) {
+    display: block; /* Show the notification */
+}
+
+/* Keyframes for fade in and out animation */
+@keyframes fadeInOut {
+    0% {
+        opacity: 10;
+    }
+    20% {
+        opacity: 1;
+    }
+    80% {
+        opacity: 1;
+    }
+    100% {
+        opacity: 0;
+    }
+}
+
+/* Animation for the button click */
+.select-floor:active {
+    transform: scale(0.95); /* Scale down on click */
+    transition: transform 0.1s; /* Quick transition for the click effect */
+}
+
+/* New styles for the About Us section */
+.team-member {
+    background-color: rgba(139, 130, 130, 0.8); /* Blue background with transparency */
+    padding: 40px; /* Padding for spacing */
+    text-align: center; /* Center the text */
+    margin: 40px 0; /* Margin for spacing above and below */
+    border-radius: 20px; /* Rounded corners */
+    box-shadow: 0 2px 10px rgba(3, 3, 3, 0.1); /* Subtle shadow for depth */
+}
+
+.about-us h2 {
+    font-size: 2em; /* Larger font size for the title */
+    margin-bottom: 20px; /* Space below the title */
+}
+
+.team-member {
+    display: inline-block; /* Inline block for horizontal layout */
+    margin: 30px; /* Space between members */
+    text-align: center; /* Center text for each member */
+}
+
+.team-member a {
+    display: inline-block; /* Make the anchor tag an inline block */
+    text-decoration: none; /* Remove underline from links */
+}
+
+.team-member img {
+    width: 100px; /* Set a fixed width for images */
+    height: 100px; /* Set a fixed height for images */
+    object-fit: cover;
+    border-radius: 10%; /* Circular images */
+    background-color: transparent;
+    display: center;
+    transition: transform 0.5s; /* Smooth transition for hover effect */
+}
+
+.team-member img:hover {
+    transform: scale(1.1); /* Slightly enlarge on hover */
+}
+
+.team-member h3 {
+    font-size: 1.3em; /* Font size for member names */
+    margin: 0; /* Remove default margin */
+}
+
+.members-button {
+    position: fixed; /* Fix the button to the right side */
+    right: 20px; /* Distance from the right edge */
+    top: 50px; /* Distance from the top */
+    z-index: 1000; /* Ensure it is above other elements */
+}
+
+.button {
+    background-color: #4a8bdc; /* Button background color */
+    color: rgb(0, 0, 0); /* Text color */
+    border-radius: 30px; /* Rounded corners */
+    padding: 15px 30px; /* Padding for the button */
+    text-align: center; /* Center the text */
+    text-decoration: none; /* Remove underline */
+    font-size: 1.2em; /* Font size for emphasis */
+    transition: background-color 0.3s, transform 0.3s; /* Transition for hover effect */
+}
+.button:hover {
+    background-color: #090a0a; /* Darker shade on hover */
+    transform: scale(1.05); /* Slightly enlarge on hover */
+
+}
+
+

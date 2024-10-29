@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Log In</title>
+
+    <style>
+    *
+    {
+    margin: 0;
+    padding: 0;
+    }
+
+    body
+    {
+    background-image: url(img/176476482_3970414789740593_2511859495334039578_n.jpg);
+    }
+
+    .container
+    {
+    display: flex;
+    height: 500px;
+    width: 800px;
+    margin: auto;
+    position: center;
+    margin-top: 120px;
+    padding-left: 420px;
+    }
+
+    .form
+    {
+    color: cyan;
+    width: 40%;
+    text-align: center;
+    position: center;
+    border-radius: 10px;
+    background: transparent;
+    backdrop-filter: blur(5px);
+    background-color: #E0EAFC;
+    }
+
+    .form h1
+    {
+    font-size: 50px;
+    font-family: 'Times New Roman', Times, serif;
+    margin: 60px;
+    text-shadow: 0 0 3px;
+    color: black;
+    
+    }
+    
+    .box
+    {
+    border-radius: 15px;
+    background-color: cyan;
+    padding: 15px;
+    width: 65%;
+    margin: 16px;
+    border: 3px solid black;
+    outline: none;
+    }
+    
+    #submit
+    {
+    color: green;
+    background-color: black;
+    padding: 15px;
+    border-radius: 15px;
+    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+    }
+    
+    #reset 
+    {
+    color: green;
+    background-color: black;
+    padding: 15px;
+    border-radius: 15px;
+    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+    transition: 0.5ms;
+    }
+    
+    #submit:hover{
+    background-color: black;
+    color: white;
+    }
+
+    #reset:hover
+    {
+    background-color: black;
+    color: white;
+    }
+
+    #button
+    {
+    color: green;
+    background-color: black;
+    padding: 15px;
+    border-radius: 15px;
+    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+    }
+    
+    .pgraph
+    {
+    font-size: 15px;
+    color: black;
+    }
+    
+    #button:hover
+    {
+    background-color: black;
+    color: white;
+    }
+
+    h1
+    {
+    color: black;
+    text-align: center;
+    margin-top: 50px;
+    margin-right: 80px;
+    }
+    p 
+    {  
+    color: black;
+    text-align: center;
+    }
+
+    footer
+    {
+    background-color: #646464;
+    border-radius: 20px;
+    }
+    </style>
+
+</head>
+<body>
+    <div class="container">
+        <form class="form" action="Type_Management.html">
+            <h1>Log In</h1>
+            <input type="email" placeholder="Enter Email" required class="box">
+            <input type="password" required class="box" placeholder="Enter Password" maxlength="15">
+            <input type="submit" value="Log In" id="submit">
+            <input type="reset" value="Reset" id="reset">
+            <p class="pgraph">Don’t have an account? Please Sign Up</p>
+            <a href="Sign Up.html">
+                <input type="button" value="Sign Up" id="button">
+            </a>
+        </form>
+    </div>
+
+    <article>
+      <footer>
+        <h1>INSTRUCTIONS</h1>
+        <p>
+            Before proceeding in Parking Management, please enter the required username and password, then log in. If you do not have an existing account, click the Sign-Up button below and complete the required information. Ensure that all entries are correct, then log in with your newly created account before continuing in Parking Management.
+        </p>
+      </footer>
+    </article>
+</body>
+</html>

@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="Floors.css">
+    <title>Floor 1 - Parking Slot Management</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css" integrity="sha512-Kc323vGBEqzTmouAECnVceyQqyqdsSiqLQISBL29aUW4U/M7pSPA/gEUZQqv1cwx4OnYxTxve5UMg5GT6L4JJg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <style>
+        .slot {
+            border: 1px solid #ddd;
+            padding: 10px;
+            margin: 5px;
+            display: inline-block;
+            text-align: center;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+        .slot.available {
+            background-color: #c8e6c9; /* Light green for available slots */
+        }
+        .slot.occupied {
+            background-color: #ffcdd2; /* Light red for occupied slots */
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="header-content">
+            <a href="Parking_slot.html">
+                <img src="Img/bcplogo.png" alt="BCP logo" class="logo">
+            </a>
+            <h1 class="header-title">Floor 1 Parking Slots</h1>
+        </div>
+    </header>
+    <main>
+        <div class="container">
+            <div class="navigation">
+                <a href="Floor_section.html"><i class="fa-solid fa-house" data-label="Home"></i></a>
+                <a href="Floor_2.html"><i class="fa-solid fa-arrow-right" data-label="Next"></i></a>
+            </div>
+            <h2 class="available-slots-header">Available Parking Slots</h2>
+            <div class="slots-grid" id="slotsGrid">
+                <!-- Create 20 slots dynamically -->
+            </div>
+            <div id="notification" class="notification"></div>
+        </div>
+    </main>
+    <footer>
+        <p>&copy; 2024 BCP Parking Slot Management. All rights reserved.</p>
+    </footer>
+    <script>
+        const totalSlots = 20;
+        const slotsGrid = document.getElementById("slotsGrid");
+        const notification = document.getElementById("notification");
+
+        // Initialize slots
+        function initializeSlots() {
+            for (let i = 1; i <= totalSlots; i++) {
+                const slotStatus = localStorage.getItem(`slot${i}`) || 'available';
+                createSlotElement(i, slotStatus);
+            }
+        }
+
+        // Create slot element
+        function createSlotElement(slotNumber, status) {
+            const slot = document.createElement("div");
+            slot.className = `slot ${status}`; // Set class based on status
+            slot.dataset.slotNumber = slotNumber;
+            slot.dataset.status = status;
+            slot.innerHTML = `Slot ${slotNumber}<br><span>${status.charAt(0).toUpperCase() + status.slice(1)}</span>`;
+            
+            // Add click event to toggle slot status
+            slot.addEventListener("click", () => toggleSlotStatus(slot));
+            slotsGrid.appendChild(slot);
+        }
+
+        // Toggle slot status
+        function toggleSlotStatus(slot) {
+            const slotNumber = slot.dataset.slotNumber;
+            const currentStatus = slot.dataset.status;
+            const newStatus = currentStatus === 'available' ? 'occupied' : 'available';
+            
+            slot.dataset.status = newStatus;
+            slot.className = `slot ${newStatus}`; // Update class for CSS styling
+            slot.innerHTML = `Slot ${slotNumber}<br><span>${newStatus.charAt(0).toUpperCase() + newStatus.slice(1)}</span>`;
+            localStorage.setItem(`slot${slotNumber}`, newStatus); // Store status in localStorage
+
+            // Update notification
+            notification.textContent = `Slot ${slotNumber} is now ${newStatus}.`;
+            setTimeout(() => {
+                notification.textContent = '';
+            }, 3000);
+        }
+
+        // Initialize slots on page load
+        initializeSlots();
+    </script>
+</body>
+</html>

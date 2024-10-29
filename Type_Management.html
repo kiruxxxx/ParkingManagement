@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <title>TYPE MANAGEMENT</title>
+    <style>
+        body {
+            background-image: url('img/176476482_3970414789740593_2511859495334039578_n.jpg');
+            background-repeat: no-repeat;
+            background-size: cover;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 92vh;     
+            margin: 0;
+            font-family: 'Arial', sans-serif;
+            color: #333;
+        }
+
+        .mngt {
+            display: flex;
+            flex-direction: column;
+            align-items: center; /* Center the content horizontally */
+        }
+
+        .Type {
+            background-color: rgba(255, 255, 255, 0.8);
+            width: 400px;
+            border-radius: 8px;
+            padding: 1em;
+            text-align: center;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2);
+            animation: fadeIn 1s;
+            margin-bottom: 20px; /* Add some space below the Type box */
+        }
+
+        .vip {
+            width: 300px;
+            padding: 0.75em;
+            background-color: #388e3c;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 120%;
+            color: white;
+            transition: background-color 0.3s, transform 0.2s;
+            margin: 10px 0;
+        }
+
+        .vip:hover {
+            background-color: #388e3c;
+            transform: scale(1.05);
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+
+        @media (max-width: 480px) {
+            .Type {
+                width: 90%;
+            }
+            .vip {
+                width: 100%;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <div class="mngt">
+        <h2 class="Type">Type Of Member</h2>
+        <button class="vip" onclick="memberSelected('Vip Member')">Vip Member</button>
+        <button class="vip" onclick="memberSelected('Staff')">Staff</button>
+        <button class="vip" onclick="memberSelected('Guest')">Guest</button>
+    </div>
+
+    <script>
+        function memberSelected(memberType) {
+            let url;
+            switch (memberType) {
+                case 'Vip Member':
+                    url = 'Costumer_Management.html'; // Replace with your actual VIP page URL
+                    break;
+                case 'Staff':
+                    url = 'Costumer_Management.html'; // Replace with your actual Staff page URL
+                    break;
+                case 'Guest':
+                    url = 'Costumer_Management.html'; // Replace with your actual Guest page URL
+                    break;
+            }
+            window.location.href = url; // Redirect to the selected URL
+        }
+    </script>
+    
+</body>
+</html>

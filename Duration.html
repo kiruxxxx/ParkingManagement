@@ -1,0 +1,184 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Duration Management</title>
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            margin: 0;
+            color: aliceblue;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            background-image: url(img/176476482_3970414789740593_2511859495334039578_n.jpg);
+            background-size: cover;
+            background-repeat: no-repeat;
+            padding: 20px;
+        }
+        h1 {
+            font-size: 4em;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.7);
+            margin-bottom: 20px;
+            text-align: center;
+        }
+        .input-box {
+            display: inline-block;
+            background: rgba(0, 0, 0, 0.5);
+            padding: 20px;
+            border-radius: 10px;
+            font-size: 1.5em;
+            text-align: center;
+            margin-bottom: 20px;
+        }
+        .result-box {
+            display: inline-block;
+            background: rgba(0, 0, 0, 0.5);
+            padding: 20px;
+            border-radius: 10px;
+            font-size: 1.5em;
+            color: #ffcc00;
+            text-align: left;
+            max-height: 300px;
+            overflow-y: auto;
+        }
+        input[type="text"] {
+            width: 200px;
+            padding: 10px;
+            font-size: 1em;
+            margin: 10px 0;
+            border-radius: 5px;
+            border: none;
+        }
+        button {
+            padding: 10px 20px;
+            font-size: 1em;
+            border-radius: 5px;
+            border: none;
+            background-color: #007BFF;
+            color: white;
+            cursor: pointer;
+            transition: background-color 0.3s;
+            margin-top: 10px;
+        }
+        button:hover {
+            background-color: #0056b3;
+        }
+        .remove-button {
+            color: red;
+            cursor: pointer;
+            margin-left: 10px;
+        }
+    </style>
+</head>
+<body>
+    <h1>Duration Management</h1>
+    <div class="input-box">
+        <input type="text" id="vehicleName" placeholder="Name of Vehicle">
+        <br>
+        <input type="text" id="timeIn" placeholder="Time In (HH:MM AM/PM)">
+        <br>
+        <input type="text" id="timeOut" placeholder="Time Out (HH:MM AM/PM)">
+        <br>
+        <input type="text" id="elapsedTime" placeholder="Elapsed Time (HH:MM)" readonly>
+        <br>
+        <button onclick="calculateElapsedTime()">Calculate</button>
+        <br>
+        <button onclick="goToPage('Vehicle_Management.html')">Next Page</button>
+    </div>
+
+    <div class="result-box">
+        <h2>Stored Data</h2>
+        <div id="storedData">No data stored yet.</div>
+    </div>
+
+    <script>
+        // Load stored data on page load
+        window.onload = function() {
+            const storedData = JSON.parse(localStorage.getItem('durationData')) || [];
+            displayStoredData(storedData);
+        };
+
+        function calculateElapsedTime() {
+            const vehicleName = document.getElementById('vehicleName').value.trim();
+            const timeIn = document.getElementById('timeIn').value.trim();
+            const timeOut = document.getElementById('timeOut').value.trim();
+
+            const inParsed = parseTime(timeIn);
+            const outParsed = parseTime(timeOut);
+
+            if (!vehicleName || !inParsed || !outParsed) {
+                alert("Please enter valid vehicle name and times in the format HH:MM AM/PM");
+                return;
+            }
+
+            const startTime = new Date();
+            startTime.setHours(inParsed.hours + (inParsed.meridiem === 'PM' && inParsed.hours < 12 ? 12 : 0), inParsed.minutes);
+
+            const endTime = new Date();
+            endTime.setHours(outParsed.hours + (outParsed.meridiem === 'PM' && outParsed.hours < 12 ? 12 : 0), outParsed.minutes);
+
+            if (endTime <= startTime) {
+                endTime.setDate(endTime.getDate() + 1); // Add one day for overnight scenarios
+            }
+
+            const elapsedMillis = endTime - startTime;
+            const elapsedHours = Math.floor(elapsedMillis / 3600000);
+            const elapsedMinutes = Math.floor((elapsedMillis % 3600000) / 60000);
+
+            const elapsedTime = `${String(elapsedHours).padStart(2, '0')}:${String(elapsedMinutes).padStart(2, '0')}`;
+            document.getElementById('elapsedTime').value = elapsedTime;
+
+            // Store data in localStorage
+            const storedData = JSON.parse(localStorage.getItem('durationData')) || [];
+            storedData.push({ vehicleName, timeIn, timeOut, elapsedTime });
+            localStorage.setItem('durationData', JSON.stringify(storedData));
+
+            // Update displayed stored data
+            displayStoredData(storedData);
+        }
+
+        function displayStoredData(data) {
+            const storedDataDiv = document.getElementById('storedData');
+            if (data.length === 0) {
+                storedDataDiv.innerHTML = "No data stored yet.";
+                return;
+            }
+
+            storedDataDiv.innerHTML = data.map((entry, index) => 
+                `<p>${index + 1}. Vehicle Name: ${entry.vehicleName}, Time In: ${entry.timeIn}, Time Out: ${entry.timeOut}, Elapsed Time: ${entry.elapsedTime} <span class="remove-button" onclick="removeData(${index})">X</span></p>`
+            ).join('');
+        }
+
+        function removeData(index) {
+            const storedData = JSON.parse(localStorage.getItem('durationData')) || [];
+            storedData.splice(index, 1); // Remove the item at the specified index
+            localStorage.setItem('durationData', JSON.stringify(storedData)); // Update local storage
+            displayStoredData(storedData); // Refresh displayed data
+        }
+
+        function parseTime(time) {
+            const parts = time.split(' ');
+            if (parts.length !== 2) return null;
+
+            const timePart = parts[0];
+            const meridiem = parts[1].toUpperCase();
+
+            const [hours, minutes] = timePart.split(':').map(Number);
+            if (isNaN(hours) || isNaN(minutes) || 
+                hours < 1 || hours > 12 || 
+                minutes < 0 || minutes > 59 || 
+                (meridiem !== 'AM' && meridiem !== 'PM')) {
+                return null;
+            }
+
+            return { hours, minutes, meridiem };
+        }
+
+        function goToPage(page) {
+            window.location.href = page;
+        }
+    </script>
+</body>
+</html>

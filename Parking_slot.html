@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="Floors.css">
+    <title>Parking Slot Management</title>
+    <style>
+        .header-content {
+            background-color: #646464; 
+            padding: 10px; 
+            text-align: center; 
+            border-radius: 20px;
+            position: relative; 
+        }
+        .members-button {
+            position: absolute; 
+            top: 50%; 
+            right: 20px; 
+            transform: translateY(-50%); 
+            padding: 10px 15px;
+            background-color: #000000; 
+            color: white; 
+            border: none;
+            border-radius: 10px;
+            cursor: pointer;
+            text-decoration: none; 
+            z-index: 1000; 
+        }
+        .slot-container {
+            margin: 20px;
+            text-align: center;
+        }
+        .slot {
+            padding: 10px;
+            margin: 5px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            display: inline-block;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+        .occupied {
+            background-color: #f44336; 
+            color: white;
+            cursor: pointer;
+        }
+        .available {
+            background-color: #4caf50; 
+            color: white;
+        }
+        .highlighted {
+            border: 2px solid #ffd600; /* Highlight color */
+        }
+        .warning-message {
+            margin: 20px;
+            padding: 15px;
+            background-color: #ffcc00; /* Warning background color */
+            color: #000; /* Text color */
+            text-align: center;
+            border-radius: 5px;
+            font-weight: bold;
+            font-size: 1.2em;
+        }
+        .back-button {
+            padding: 10px;
+            margin: 20px;
+            background-color: #007bff;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+        .back-button:hover {
+            background-color: #0056b3;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="header-content">
+            <a href="Parking_slot.html"> 
+                <img src="img/bcplogo.png" alt="Logo" class="logo"> 
+            </a>
+            <h1>Welcome to the BCP Parking Slot Management System</h1>
+        </div>
+    </header>
+    
+    <main>
+        <div class="container">
+            <div class="select-floor">
+                <label for="floorSelect">Select Floor:</label>
+                <select id="floorSelect" onchange="renderSlots()">
+                    <option value="Floor 1">Floor 1</option>
+                    <option value="Floor 2">Floor 2</option>
+                    <option value="Floor 3">Floor 3</option>
+                    <option value="Floor 4">Floor 4</option>
+                    <option value="Floor 5">Floor 5</option>
+                </select>
+            </div>
+            <div class="slot-container" id="slotContainer">
+                <!-- Slots will be generated here -->
+            </div>
+            <button class="back-button" onclick="history.back()">Back</button>
+        </div>
+
+    </main>
+    
+    <footer>
+        <p>&copy; 2024 BCP Parking Slot Management. All rights reserved.</p>
+    </footer>
+    
+    <script>
+        const slots = Array.from({ length: 20 }, (_, i) => `Slot ${i + 1}`);
+        const occupiedSlots = JSON.parse(localStorage.getItem('occupiedSlots')) || {};
+        const highlightedSlots = JSON.parse(localStorage.getItem('highlightedSlots')) || {};
+
+        function renderSlots() {
+            const selectedFloor = document.getElementById('floorSelect').value;
+            const slotContainer = document.getElementById('slotContainer');
+            slotContainer.innerHTML = '';
+
+            slots.forEach(slot => {
+                const key = `${selectedFloor} - ${slot}`;
+                const slotDiv = document.createElement('div');
+                slotDiv.className = `slot ${occupiedSlots[key] ? 'occupied' : 'available'}`;
+                slotDiv.textContent = slot;
+
+                // Retain highlight if previously highlighted
+                if (highlightedSlots[key]) {
+                    slotDiv.classList.add('highlighted');
+                }
+
+                // Add event listener to toggle occupancy and highlight
+                slotDiv.onclick = () => {
+                    toggleOccupancy(slotDiv, key);
+                    toggleHighlight(slotDiv, key);
+                };
+
+                slotContainer.appendChild(slotDiv);
+            });
+        }
+
+        function toggleOccupancy(slotDiv, slotKey) {
+            if (occupiedSlots[slotKey]) {
+                delete occupiedSlots[slotKey]; // Remove occupancy
+                slotDiv.classList.remove('occupied');
+                slotDiv.classList.add('available');
+            } else {
+                occupiedSlots[slotKey] = true; // Add occupancy
+                slotDiv.classList.add('occupied');
+                slotDiv.classList.remove('available');
+            }
+            localStorage.setItem('occupiedSlots', JSON.stringify(occupiedSlots));
+        }
+
+        function toggleHighlight(slotDiv, slotKey) {
+            const isHighlighted = slotDiv.classList.toggle('highlighted');
+            if (isHighlighted) {
+                highlightedSlots[slotKey] = true; // Add highlight
+            } else {
+                delete highlightedSlots[slotKey]; // Remove highlight
+            }
+            localStorage.setItem('highlightedSlots', JSON.stringify(highlightedSlots));
+        }
+
+        // Initial render
+        renderSlots();
+    </script>
+</body>
+</html>

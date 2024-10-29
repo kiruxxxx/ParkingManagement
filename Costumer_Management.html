@@ -1,0 +1,419 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Customer & Vehicle Management</title>
+    <style>
+        /* Basic reset */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: Arial, sans-serif;
+        }
+
+        body {
+            background-color: #f4f4f9;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            min-height: 100vh;
+            background-image: url(img/176476482_3970414789740593_2511859495334039578_n.jpg);
+            background-position: cover;
+           
+        }
+
+        h1 {
+            font-size: 2em;
+            color: white;
+            margin: 20px 0;
+            text-transform: uppercase;
+        }
+
+        /* Clock styles */
+        .clock {
+            position: absolute;
+            top: 20px;
+            left: 20px;
+            background-color: rgba(0, 0, 0, 0.7);
+            color: white;
+            padding: 10px;
+            border-radius: 5px;
+            font-size: 1.2em;
+        }
+
+        /* Table styles */
+        .customer-table {
+            width: 90%;
+            max-width: 800px;
+            border-collapse: collapse;
+            margin: 20px 0;
+            background-color: #ffffff;
+            box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
+        }
+
+        .customer-table th, .customer-table td {
+            padding: 12px;
+            border: 1px solid #ddd;
+            text-align: center;
+            font-size: 1em;
+        }
+
+        .customer-table th {
+            background-color: #4caf50;
+            color: white;
+            font-weight: bold;
+        }
+
+        .customer-table tbody tr:nth-child(even) {
+            background-color: #f2f2f2;
+        }
+
+        /* Form styles */
+        .add-customer-form {
+            margin: 20px 0;
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+            width: 90%;
+            max-width: 800px;
+            padding: 20px;
+            background-color: #ffffff;
+            box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
+        }
+
+        .add-customer-form label {
+            font-weight: bold;
+        }
+
+        .add-customer-form input, .add-customer-form select {
+            padding: 8px;
+            font-size: 1em;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+        }
+
+        .add-customer-form button {
+            padding: 10px;
+            background-color: #4caf50;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            font-size: 1em;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+
+        .add-customer-form button:hover {
+            background-color: #388e3c;
+        }
+
+        /* Footer */
+        .footer {
+            margin-top: auto;
+            padding: 15px;
+            background-color: #333;
+            color: #fff;
+            width: 100%;
+            text-align: center;
+            font-size: 1em;
+        }
+
+        /* Red Mark Style */
+        .overdue {
+            background-color: #f44336; /* Red color */
+            color: white; /* Text color */
+        }
+         
+         .title {
+            display: flex;
+            align-items: center;
+         }
+
+         .title img {
+            margin-right: 10px;
+
+         }
+
+        
+         
+    </style>
+</head>
+<body>
+    <div class="clock" id="clock"></div>
+
+    <div class="title">
+    <img src="img/bcplogo.png" alt="Logo" class="logo" width="50" height="50">
+    <h1 style="border-style:double;">Customer & Vehicle Management</h1>
+    </div>
+     
+
+    <!-- Add Customer and Vehicle Form -->
+    <div class="add-customer-form">
+        <h2>Customer Information</h2>
+        <label for="customerName">Name:</label>
+        <input type="text" id="customerName" placeholder="Enter customer name" required>
+        
+        <label for="contactNumber">Contact Number:</label>
+        <input type="text" id="contactNumber" placeholder="Enter contact number" required>
+        
+        <label for="parkingSlot">Parking Slot:</label>
+        <select id="parkingSlot">
+            <option value="Slot 1">Slot 1</option>
+            <option value="Slot 2">Slot 2</option>
+            <option value="Slot 3">Slot 3</option>
+            <option value="Slot 4">Slot 4</option>
+            <option value="Slot 5">Slot 5</option>
+            <option value="Slot 6">Slot 6</option>
+            <option value="Slot 7">Slot 7</option>
+            <option value="Slot 8">Slot 8</option>
+            <option value="Slot 9">Slot 9</option>
+            <option value="Slot 10">Slot 10</option>
+            <option value="Slot 11">Slot 11</option>
+            <option value="Slot 12">Slot 12</option>
+            <option value="Slot 13">Slot 13</option>
+            <option value="Slot 14">Slot 14</option>
+            <option value="Slot 15">Slot 15</option>
+            <option value="Slot 16">Slot 16</option>
+            <option value="Slot 17">Slot 17</option>
+            <option value="Slot 18">Slot 18</option>
+            <option value="Slot 19">Slot 19</option>
+            <option value="Slot 20">Slot 20</option>
+
+
+
+        </select>
+        
+        <label for="parkingFloor">Parking Floor:</label>
+        <select id="parkingFloor">
+            <option value="Floor 1">Floor 1</option>
+            <option value="Floor 2">Floor 2</option>
+            <option value="Floor 3">Floor 3</option>
+            <option value="Floor 4">Floor 4</option>
+            <option value="Floor 5">Floor 5</option>
+           
+        </select>
+
+        <h2>Vehicle Information</h2>
+        <label for="vehicleModel">Vehicle Model:</label>
+        <input type="text" id="vehicleModel" placeholder="Enter vehicle model" required>
+
+        <label for="vehicleVersion">Vehicle Version:</label>
+        <input type="text" id="vehicleVersion" placeholder="Enter vehicle version" required>
+
+        <label for="vehicleYear">Vehicle Year:</label>
+        <input type="number" id="vehicleYear" placeholder="Enter vehicle year" min="1900" max="2099" required>
+
+        <h2>Time Information</h2>
+        <label for="timeIn">Time In</label>
+        <input type="time" id="timeIn" required>
+
+        <label for="timeOut">Time Out</label>
+        <input type="time" id="timeOut">
+
+        <button type="button" onclick="addCustomer()">Add Customer</button>
+        <br>
+        
+            <button class="btn" onclick="location.href='Parking_slot.html'">Go to Parking Slot</button>
+        </div>
+    </div>
+
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+
+    <h1 style="color: #ddd; text-align: center; border-style: double;">Stored Data</h1>
+    <br>
+
+    <table class="customer-table">
+        <thead>
+            <tr>
+                <th>Customer ID</th>
+                <th>Name</th>
+                <th>Contact Number</th>
+                <th>Parking Slot</th>
+                <th>Parking Floor</th>
+                <th>Vehicle Model</th>
+                <th>Vehicle Version</th>
+                <th>Vehicle Year</th>
+                <th>Time In</th>
+                <th>Time Out</th>
+                <th>Elapsed Time (hrs)</th>
+                <th>Actions</th>
+            </tr>
+        </thead>
+        <tbody id="customerTableBody"></tbody>
+    </table>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+   
+    <div class="footer">
+        &copy; 2024 Parking Management System. All rights reserved.
+    </div>
+
+    <script>
+        window.onload = function() {
+            loadCustomers();
+            updateClock();
+            setInterval(updateClock, 1000); // Update clock every second
+        };
+
+        function updateClock() {
+            const now = new Date();
+            const options = { hour: 'numeric', minute: 'numeric', second: 'numeric', hour12: true };
+            document.getElementById('clock').innerText = now.toLocaleString('en-US', options);
+        }
+
+        function generateCustomerId() {
+            return Math.floor(1000 + Math.random() * 9000);
+        }
+
+        function addCustomer() {
+            const customerName = document.getElementById("customerName").value;
+            const contactNumber = document.getElementById("contactNumber").value;
+            const parkingSlot = document.getElementById("parkingSlot").value;
+            const parkingFloor = document.getElementById("parkingFloor").value;
+            const vehicleModel = document.getElementById("vehicleModel").value;
+            const vehicleVersion = document.getElementById("vehicleVersion").value;
+            const vehicleYear = document.getElementById("vehicleYear").value;
+            const timeIn = document.getElementById("timeIn").value;
+            const timeOut = document.getElementById("timeOut").value;
+
+            if (!customerName || !contactNumber || !vehicleModel || !vehicleVersion || !vehicleYear || !timeIn) {
+                alert("Please fill in all required fields.");
+                return;
+            }
+
+            const customerId = generateCustomerId();
+            const formattedTimeIn = formatTime(timeIn);
+            const formattedTimeOut = formatTime(timeOut);
+            const elapsedTime = calculateElapsedTime(timeIn, timeOut);
+
+            const newCustomer = {
+                id: customerId,
+                name: customerName,
+                contact: contactNumber,
+                slot: parkingSlot,
+                floor: parkingFloor,
+                vehicleModel: vehicleModel,
+                vehicleVersion: vehicleVersion,
+                vehicleYear: vehicleYear,
+                timeIn: formattedTimeIn,
+                timeOut: formattedTimeOut,
+                elapsedTime: elapsedTime
+            };
+
+            saveCustomer(newCustomer);
+            addCustomerToTable(newCustomer);
+
+            // Clear form
+            document.getElementById("customerName").value = "";
+            document.getElementById("contactNumber").value = "";
+            document.getElementById("parkingSlot").selectedIndex = 0;
+            document.getElementById("parkingFloor").selectedIndex = 0;
+            document.getElementById("vehicleModel").value = "";
+            document.getElementById("vehicleVersion").value = "";
+            document.getElementById("vehicleYear").value = "";
+            document.getElementById("timeIn").value = "";
+            document.getElementById("timeOut").value = "";
+        }
+
+        function formatTime(time) {
+            const [hours, minutes] = time.split(":").map(Number);
+            const ampm = hours >= 12 ? 'PM' : 'AM';
+            const formattedHours = hours % 12 || 12; // Convert 0 hours to 12 for AM/PM
+            return `${formattedHours}:${minutes < 10 ? '0' + minutes : minutes} ${ampm}`;
+        }
+
+        function calculateElapsedTime(timeIn, timeOut) {
+            if (!timeOut) return "N/A";
+
+            const [inHours, inMinutes] = timeIn.split(":").map(Number);
+            const [outHours, outMinutes] = timeOut.split(":").map(Number);
+
+            const start = new Date();
+            start.setHours(inHours, inMinutes);
+            const end = new Date();
+            end.setHours(outHours, outMinutes);
+
+            const elapsed = (end - start) / (1000 * 60 * 60); // Convert milliseconds to hours
+            return elapsed >= 0 ? elapsed.toFixed(2) : "Invalid Time";
+        }
+
+        function saveCustomer(customer) {
+            let customers = JSON.parse(localStorage.getItem("customers")) || [];
+            customers.push(customer);
+            localStorage.setItem("customers", JSON.stringify(customers));
+        }
+
+        function loadCustomers() {
+            const customers = JSON.parse(localStorage.getItem("customers")) || [];
+            customers.forEach(addCustomerToTable);
+        }
+
+        function addCustomerToTable(customer) {
+            const tableBody = document.getElementById("customerTableBody");
+            const newRow = document.createElement("tr");
+            
+            // Get current time for comparison
+            const now = new Date();
+            const timeOutParts = customer.timeOut.split(":");
+            const ampm = customer.timeOut.includes('PM') ? 12 : 0; // Adjust for AM/PM
+            const timeOutHours = (parseInt(timeOutParts[0]) % 12) + ampm; // Convert to 24-hour format
+            const timeOutDate = new Date();
+            timeOutDate.setHours(timeOutHours, parseInt(timeOutParts[1]));
+
+            // Add overdue class if timeOut has passed
+            if (now > timeOutDate) {
+                newRow.classList.add("overdue");
+            }
+
+            newRow.innerHTML = `
+                <td>${customer.id}</td>
+                <td>${customer.name}</td>
+                <td>${customer.contact}</td>
+                <td>${customer.slot}</td>
+                <td>${customer.floor}</td>
+                <td>${customer.vehicleModel}</td>
+                <td>${customer.vehicleVersion}</td>
+                <td>${customer.vehicleYear}</td>
+                <td>${customer.timeIn}</td>
+                <td class="${now > timeOutDate ? 'overdue' : ''}">${customer.timeOut || "N/A"}</td>
+                <td>${customer.elapsedTime}</td>
+                <td><button onclick="removeCustomer(${customer.id}, this)">Delete</button></td>
+            `;
+
+            tableBody.appendChild(newRow);
+        }
+
+        function removeCustomer(id, button) {
+            const row = button.closest('tr');
+            row.remove();
+
+            let customers = JSON.parse(localStorage.getItem("customers")) || [];
+            customers = customers.filter(customer => customer.id !== id);
+            localStorage.setItem("customers", JSON.stringify(customers));
+        }
+    </script>
+</body>
+</html>
